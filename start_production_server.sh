@@ -1,0 +1,1 @@
+pipenv run gunicorn -w 4 --thread 8 -b 0.0.0.0:60001 --chdir /mnt/d/cpe/port-op-temp/ api:app
