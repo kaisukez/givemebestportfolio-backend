@@ -13,6 +13,7 @@ fix-yahoo-finance = "*"
 bs4 = "*"
 flask = "*"
 gunicorn = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 import numpy as np
 import json
 from datetime import datetime, timedelta
@@ -32,6 +33,7 @@ from functions.portfolio import (
 )
 
 app = Flask(__name__)
+CORS(app)
 
 def get_tickers():
     tickers = ['AAL', 'AAPL', 'ADBE', 'ADI', 'ADP', 'ADSK', 'ALGN', 'ALXN', 'AMAT',
@@ -175,6 +177,12 @@ def get_optimal_port():
             'std': choosen_std,
             'sharpe': choosen_sharpe,
             'what_to_buy': what_to_buy_list
+        },
+        'options': {
+            'tickers': 'All' if len(tickers) == 95 else tickers,
+            'risk_factor': risk_factor,
+            'risk_free_rate': risk_free_rate,
+            'years': years
         }
     }
 
